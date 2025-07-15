@@ -358,7 +358,7 @@ func (e EC2Client) ValidateSecurityGroupsConfig(securityGroups []*string, primar
 }
 
 // CreateNewLaunchTemplate creates a new launch template
-func (e EC2Client) CreateNewLaunchTemplate(name, ami, instanceType, keyName, iamProfileName, userdata string, ebsOptimized, mixedInstancePolicyEnabled bool, securityGroups []*string, blockDevices []*ec2.LaunchTemplateBlockDeviceMappingRequest, instanceMarketOptions *schemas.InstanceMarketOptions, detailedMonitoringEnabled bool, primaryENI *schemas.ENIConfig, secondaryENIs []*schemas.ENIConfig) error {
+func (e EC2Client) CreateNewLaunchTemplate(name, ami, instanceType, keyName, iamProfileName, userdata string, ebsOptimized, mixedInstancePolicyEnabled bool, securityGroups []*string, blockDevices []*ec2.LaunchTemplateBlockDeviceMappingRequest, instanceMarketOptions *schemas.InstanceMarketOptions, detailedMonitoringEnabled bool, primaryENI *schemas.ENIConfig, secondaryENIs []*schemas.ENIConfig, tags []string) error {
 	// Validate security group configuration
 	if err := e.ValidateSecurityGroupsConfig(securityGroups, primaryENI, secondaryENIs); err != nil {
 		return err
@@ -383,6 +383,26 @@ func (e EC2Client) CreateNewLaunchTemplate(name, ami, instanceType, keyName, iam
 	input := &ec2.CreateLaunchTemplateInput{
 		LaunchTemplateData: launchTemplateData,
 		LaunchTemplateName: aws.String(name),
+	}
+
+	// Add resource tags if provided
+	if len(tags) > 0 {
+		var tagSpecs []*ec2.LaunchTemplateTagSpecificationRequest
+		var ec2Tags []*ec2.Tag
+		for _, tag := range tags {
+			parts := strings.Split(tag, "=")
+			if len(parts) == 2 {
+				ec2Tags = append(ec2Tags, &ec2.Tag{
+					Key:   aws.String(parts[0]),
+					Value: aws.String(parts[1]),
+				})
+			}
+		}
+		tagSpecs = append(tagSpecs, &ec2.LaunchTemplateTagSpecificationRequest{
+			ResourceType: aws.String("volume"),
+			Tags:         ec2Tags,
+		})
+		input.LaunchTemplateData.SetTagSpecifications(tagSpecs)
 	}
 
 	if len(blockDevices) > 0 {
@@ -539,7 +559,7 @@ func (e EC2Client) MakeBlockDevices(blocks []schemas.BlockDevice) []*autoscaling
 
 	for _, block := range blocks {
 		enabledEBSEncrypted := block.Encrypted
-
+		Logger.Infof("Encrypt ebs %t", enabledEBSEncrypted)
 		var ebsDevice *autoscaling.Ebs
 
 		if enabledEBSEncrypted {
@@ -556,6 +576,7 @@ func (e EC2Client) MakeBlockDevices(blocks []schemas.BlockDevice) []*autoscaling
 				DeleteOnTermination: aws.Bool(block.DeleteOnTermination),
 			}
 		}
+		Logger.Infof("ebs %s", ebsDevice)
 
 		if len(block.SnapshotID) > 0 {
 			if !isValidSnapshotID(block.SnapshotID) {
@@ -569,6 +590,7 @@ func (e EC2Client) MakeBlockDevices(blocks []schemas.BlockDevice) []*autoscaling
 			DeviceName: aws.String(block.DeviceName),
 			Ebs:        ebsDevice,
 		}
+		Logger.Infof("tmp %s", tmp)
 
 		if block.VolumeType == "io1" || block.VolumeType == "io2" {
 			tmp.Ebs.Iops = aws.Int64(block.Iops)
@@ -590,18 +612,16 @@ func (e EC2Client) MakeLaunchTemplateBlockDeviceMappings(blocks []schemas.BlockD
 		var LaunchTemplateEbsBlockDevice *ec2.LaunchTemplateEbsBlockDeviceRequest
 
 		if enabledEBSEncrypted {
-			if len(block.KmsAlias) > 0 {
-				keyId, err := e.getKmsKeyIdByAlias(block.KmsAlias)
-				if err != nil {
-					Logger.Fatal(fmt.Sprintf("Error: %s", err.Error()))
-				}
-				LaunchTemplateEbsBlockDevice = &ec2.LaunchTemplateEbsBlockDeviceRequest{
-					VolumeSize:          aws.Int64(block.VolumeSize),
-					VolumeType:          aws.String(block.VolumeType),
-					Encrypted:           aws.Bool(enabledEBSEncrypted),
-					KmsKeyId:            aws.String(keyId),
-					DeleteOnTermination: aws.Bool(block.DeleteOnTermination),
-				}
+			keyId, err := e.getKmsKeyIdByAlias(block.KmsAlias)
+			if err != nil {
+				Logger.Fatal(fmt.Sprintf("Error: %s", err.Error()))
+			}
+			LaunchTemplateEbsBlockDevice = &ec2.LaunchTemplateEbsBlockDeviceRequest{
+				VolumeSize:          aws.Int64(block.VolumeSize),
+				VolumeType:          aws.String(block.VolumeType),
+				Encrypted:           aws.Bool(enabledEBSEncrypted),
+				KmsKeyId:            aws.String(keyId),
+				DeleteOnTermination: aws.Bool(block.DeleteOnTermination),
 			}
 		} else {
 			LaunchTemplateEbsBlockDevice = &ec2.LaunchTemplateEbsBlockDeviceRequest{
