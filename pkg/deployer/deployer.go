@@ -589,14 +589,14 @@ func (d *Deployer) Deploy(config schemas.Config, region schemas.RegionConfig) er
 	if err != nil {
 		return err
 	}
-
 	if d.SecurityGroup[region.Region] != nil {
 		securityGroups = append(securityGroups, d.SecurityGroup[region.Region])
 		d.Logger.Debugf("additional security group applied to %s: %s", newAsgName, *d.SecurityGroup[region.Region])
 	}
+	launchTemplateTags := d.GenerateLaunchTemplateTags(newAsgName, d.Stack.Stack, config.ExtraTags, region.Region)
 
 	blockDevices := client.EC2Service.MakeLaunchTemplateBlockDeviceMappings(d.Stack.BlockDevices)
-	d.Logger.Debugf("additional blockDevice information %s", blockDevices[0].Ebs.String())
+	d.Logger.Debugf("additional blokcDevice information %s", blockDevices)
 
 	ebsOptimized := d.Stack.EbsOptimized
 
@@ -631,6 +631,7 @@ func (d *Deployer) Deploy(config schemas.Config, region schemas.RegionConfig) er
 		region.DetailedMonitoringEnabled,
 		region.PrimaryENI,
 		region.SecondaryENIs,
+		launchTemplateTags,
 	)
 
 	if err != nil {
@@ -783,6 +784,49 @@ func (d *Deployer) CompareWithCurrentCapacity(forceManifestCapacity bool, region
 		return d.PrevInstanceCount[region]
 	}
 	return d.Stack.Capacity
+}
+
+// GenerateLaunchTemplateTags creates tag list for launch template
+func (d *Deployer) GenerateLaunchTemplateTags(asgName, stack string, extraTags, region string) []string {
+	var ret []string
+	var keyList []string
+
+	// Add tags from AwsConfig
+	for _, tag := range d.AwsConfig.Tags {
+		if strings.Contains(tag, "=") {
+			arr := strings.Split(tag, "=")
+			keyList = append(keyList, arr[0])
+			ret = append(ret, tag)
+		}
+	}
+
+	// Add basic tags
+	basicTags := []string{
+		fmt.Sprintf("Name=%s", asgName),
+		fmt.Sprintf("stack=%s_%s", stack, strings.ReplaceAll(region, "-", "")),
+		fmt.Sprintf("app=%s", d.AwsConfig.Name),
+	}
+
+	for _, tag := range basicTags {
+		arr := strings.Split(tag, "=")
+		key := arr[0]
+		if !tool.IsStringInArray(key, keyList) {
+			ret = append(ret, tag)
+			keyList = append(keyList, key)
+		}
+	}
+
+	// Add extraTags
+	if len(extraTags) > 0 && strings.Contains(extraTags, ",") {
+		ts := strings.Split(extraTags, ",")
+		for _, s := range ts {
+			if strings.Contains(strings.TrimSpace(s), "=") {
+				ret = append(ret, strings.TrimSpace(s))
+			}
+		}
+	}
+
+	return ret
 }
 
 // GenerateTags creates tag list for autoscaling group
