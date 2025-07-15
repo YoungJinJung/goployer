@@ -596,7 +596,7 @@ func (d *Deployer) Deploy(config schemas.Config, region schemas.RegionConfig) er
 	launchTemplateTags := d.GenerateLaunchTemplateTags(newAsgName, d.Stack.Stack, config.ExtraTags, region.Region)
 
 	blockDevices := client.EC2Service.MakeLaunchTemplateBlockDeviceMappings(d.Stack.BlockDevices)
-	d.Logger.Debugf("additional blokcDevice infomation %s", blockDevices)
+	d.Logger.Debugf("additional blokcDevice information %s", blockDevices)
 
 	ebsOptimized := d.Stack.EbsOptimized
 
@@ -615,7 +615,7 @@ func (d *Deployer) Deploy(config schemas.Config, region schemas.RegionConfig) er
 	if len(securityGroups) > 0 && (region.PrimaryENI != nil || len(region.SecondaryENIs) > 0) {
 		return fmt.Errorf("cannot use both launch template security groups and ENI security groups at the same time")
 	}
-	d.Logger.Debugf("Block Device Len %d", len(blockDevices))
+
 	err = client.EC2Service.CreateNewLaunchTemplate(
 		launchTemplateName,
 		ami,
