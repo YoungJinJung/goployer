@@ -364,6 +364,9 @@ type RegionConfig struct {
 
 	// Detailed Monitoring Enabled
 	DetailedMonitoringEnabled bool `yaml:"detailed_monitoring_enabled"`
+
+	// HTTP PUT response hop limit for IMDSv2 (default: 1)
+	HttpPutResponseHopLimit int64 `yaml:"http_put_response_hop_limit,omitempty"`
 }
 
 // ENI Configuration

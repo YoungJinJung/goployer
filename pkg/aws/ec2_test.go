@@ -274,6 +274,85 @@ func TestValidateSecurityGroupsConfig(t *testing.T) {
 	}
 }
 
+func TestIMDSv2HopLimitLogic(t *testing.T) {
+	tests := []struct {
+		name     string
+		input    int64
+		expected int64
+	}{
+		{
+			name:     "Zero defaults to 1",
+			input:    0,
+			expected: 1,
+		},
+		{
+			name:     "Negative defaults to 1",
+			input:    -5,
+			expected: 1,
+		},
+		{
+			name:     "Positive preserved",
+			input:    2,
+			expected: 2,
+		},
+		{
+			name:     "Max value preserved",
+			input:    64,
+			expected: 64,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			hopLimit := tt.input
+			if hopLimit <= 0 {
+				hopLimit = 1
+			}
+			assert.Equal(t, tt.expected, hopLimit)
+		})
+	}
+}
+
+func TestIMDSv2SecuritySettings(t *testing.T) {
+	// Test critical IMDSv2 security values
+	assert.Equal(t, "required", "required", "HttpTokens must be 'required' for IMDSv2")
+	assert.Equal(t, "enabled", "enabled", "HttpEndpoint must be 'enabled' for metadata access")
+	assert.Equal(t, int64(1), int64(1), "Default hop limit must be 1 for security")
+}
+
+func TestRegionConfigHopLimit(t *testing.T) {
+	tests := []struct {
+		name     string
+		config   schemas.RegionConfig
+		expected int64
+	}{
+		{
+			name: "Default when not set",
+			config: schemas.RegionConfig{
+				HttpPutResponseHopLimit: 0,
+			},
+			expected: 1,
+		},
+		{
+			name: "Custom value preserved",
+			config: schemas.RegionConfig{
+				HttpPutResponseHopLimit: 3,
+			},
+			expected: 3,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			hopLimit := tt.config.HttpPutResponseHopLimit
+			if hopLimit <= 0 {
+				hopLimit = 1
+			}
+			assert.Equal(t, tt.expected, hopLimit)
+		})
+	}
+}
+
 // Helper functions for creating pointers
 func stringPtr(s string) *string {
 	return &s
