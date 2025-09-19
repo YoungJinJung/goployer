@@ -632,6 +632,7 @@ func (d *Deployer) Deploy(config schemas.Config, region schemas.RegionConfig) er
 		region.PrimaryENI,
 		region.SecondaryENIs,
 		launchTemplateTags,
+		region.HttpPutResponseHopLimit,
 	)
 
 	if err != nil {
