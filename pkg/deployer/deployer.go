@@ -598,7 +598,8 @@ func (d *Deployer) Deploy(config schemas.Config, region schemas.RegionConfig) er
 	launchTemplateTags := d.GenerateLaunchTemplateTags(newAsgName, d.Stack.Stack, config.ExtraTags, region.Region)
 
 	blockDevices := client.EC2Service.MakeLaunchTemplateBlockDeviceMappings(d.Stack.BlockDevices)
-	d.Logger.Debugf("additional blokcDevice infomation %s", blockDevices)
+
+	d.Logger.Debugf("additional blokcDevice information %s", blockDevices)
 
 	ebsOptimized := d.Stack.EbsOptimized
 
@@ -634,6 +635,7 @@ func (d *Deployer) Deploy(config schemas.Config, region schemas.RegionConfig) er
 		region.PrimaryENI,
 		region.SecondaryENIs,
 		launchTemplateTags,
+		region.HttpPutResponseHopLimit,
 	)
 
 	if err != nil {
