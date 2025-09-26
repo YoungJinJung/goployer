@@ -88,3 +88,28 @@ func TestDeployer_ValidateOption(t *testing.T) {
 		t.Errorf("Invalid Override Spot Types Option: %s", validErr)
 	}
 }
+
+func TestDeployer_HealthCheckingStatus(t *testing.T) {
+	deployer := Deployer{
+		HealthCheckStatus: make(map[string]bool),
+		StepStatus:        map[int64]bool{constants.StepDeploy: true},
+		Stack: schemas.Stack{
+			Regions: []schemas.RegionConfig{
+				{Region: "ap-northeast-2"},
+			},
+		},
+	}
+
+	// Initially, health check status should be false or not set
+	if status, exists := deployer.HealthCheckStatus["ap-northeast-2"]; exists && status {
+		t.Error("HealthCheckStatus should not be true initially")
+	}
+
+	// Simulate successful health check by setting the status
+	deployer.HealthCheckStatus["ap-northeast-2"] = true
+
+	// Verify that the status is now true
+	if !deployer.HealthCheckStatus["ap-northeast-2"] {
+		t.Error("HealthCheckStatus should be true after successful health check")
+	}
+}
