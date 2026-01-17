@@ -1,7 +1,6 @@
 module github.com/DevopsArtFactory/goployer
 
-go 1.21
-toolchain go1.24.1
+go 1.25
 
 require (
 	github.com/AlecAivazis/survey/v2 v2.1.0
