@@ -34,7 +34,7 @@ import (
 	Logger "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"gopkg.in/ini.v1"
-	"gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v3"
 
 	"github.com/DevopsArtFactory/goployer/pkg/constants"
 	"github.com/DevopsArtFactory/goployer/pkg/schemas"

@@ -20,7 +20,7 @@ import (
 	"os"
 
 	Logger "github.com/sirupsen/logrus"
-	"gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v3"
 
 	"github.com/DevopsArtFactory/goployer/pkg/schemas"
 	"github.com/DevopsArtFactory/goployer/pkg/tool"

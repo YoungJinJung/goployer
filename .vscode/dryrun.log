@@ -1,0 +1,8 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/kuma/Develop/goployer'
+mkdir -p ./out
+ 
+echo
+GOOS=darwin GOARCH=amd64 CGO_ENABLED=1 go build -tags "release" -ldflags " -X github.com/DevopsArtFactory/goployer/pkg/version.version=2.0.10-2-gedf98a4 -X github.com/DevopsArtFactory/goployer/pkg/version.buildDate=2022-08-27T11:26:01Z -X github.com/DevopsArtFactory/goployer/pkg/version.gitCommit=edf98a4a0cee4d6fff5c0f9c07b39843a620e313 -X github.com/DevopsArtFactory/goployer/pkg/version.gitTreeState=dirty -s -w  -extldflags \"\"" -o out/goployer github.com/DevopsArtFactory/goployer/cmd/goployer
+make: Leaving directory `/Users/kuma/Develop/goployer'
+ 

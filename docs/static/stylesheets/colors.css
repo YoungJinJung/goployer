@@ -1,4 +1,3 @@
-
 :root {
     --main-bg-color: #112d4e;
     --header-footer: #dbe2ef;
@@ -14,6 +13,11 @@
     --maturity-beta: #ffd500;
 }
 
+html {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
 .main-color {
     background-color: var(--main-bg-color);
     color: var(--light-text);
@@ -21,6 +25,7 @@
 
 body {
     background-color: var(--testimonials-color);
+    overflow-x: hidden;
 }
 
 .goployer-navbar {
@@ -45,8 +50,8 @@ input.td-search-input::placeholder {
     background-color: var(--values-color);
     color: var(--values-foreground);
 
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
+    padding-top: 5rem !important;
+    padding-bottom: 10rem !important;
     padding-left: 2rem !important;
     padding-right: 2rem !important;
 }
@@ -101,13 +106,13 @@ input.td-search-input::placeholder {
 }
 
 .splash a {
-  color: var(--header-footer-foreground)
+    color: var(--header-footer-foreground)
 }
 
 .splash a:hover {
-  color: var(--hover-color)
+    color: var(--hover-color)
 }
 
-a > code {
+a>code {
     color: #c97300;
 }

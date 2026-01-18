@@ -1,0 +1,920 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `all'.  Stop.
+
+
+# Make data base, printed on Sat Aug 27 11:26:01 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# makefile (from `Makefile', line 57)
+GO_LDFLAGS = -X $(VERSION_PACKAGE).version=$(VERSION) -X $(VERSION_PACKAGE).buildDate=$(shell date +'%Y-%m-%dT%H:%M:%SZ') -X $(VERSION_PACKAGE).gitCommit=$(COMMIT) -X $(VERSION_PACKAGE).gitTreeState=$(if $(shell git status --porcelain),dirty,clean) -s -w
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from `Makefile', line 32)
+BUILD_PACKAGE = $(REPOPATH)/$(COMMAND_PKG)/$(PROJECT)
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile (from `Makefile', line 45)
+LDFLAGS_linux = -static
+# makefile
+CURDIR := /Users/kuma/Develop/goployer
+# makefile
+SHELL = /bin/sh
+# environment
+FZF_DEFAULT_COMMAND = ag -l --hidden -g "" --ignore .git
+# environment
+VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{"*":"ko"},"_languagePackId":"d4733d4bd5138ffb2c9d12a76b2e9102.ko","_translationsConfigFile":"/Users/kuma/Library/Application Support/Code/clp/d4733d4bd5138ffb2c9d12a76b2e9102.ko/tcf.json","_cacheRoot":"/Users/kuma/Library/Application Support/Code/clp/d4733d4bd5138ffb2c9d12a76b2e9102.ko","_resolvedLanguagePackCoreLocation":"/Users/kuma/Library/Application Support/Code/clp/d4733d4bd5138ffb2c9d12a76b2e9102.ko/e4503b30fc78200f846c62cf8091b76ff5547662","_corruptedFile":"/Users/kuma/Library/Application Support/Code/clp/d4733d4bd5138ffb2c9d12a76b2e9102.ko/corrupted.info","_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# `override' directive (from `Makefile', line 42)
+VERSION = $(shell git describe --always --tags --dirty)
+# makefile (from `Makefile', line 46)
+LDFLAGS_darwin = 
+# environment
+__CFBundleIdentifier = com.microsoft.VSCode
+# environment
+INFOPATH = /opt/homebrew/share/info:/opt/homebrew/share/info:
+# environment
+P9K_SSH = 0
+# makefile (from `Makefile', line 26)
+S3_EXPERIMENTAL_LATEST = s3://$(RELEASE_BUCKET)/experimental/latest
+# environment
+VSCODE_CWD = /
+# environment
+PATH = /opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/mysql@5.7/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/kuma/.asdf/shims:/opt/homebrew/opt/asdf/libexec/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin
+# makefile (from `Makefile', line 49)
+GO_BUILD_TAGS_linux = "osusergo netgo static_build release"
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# makefile (from `Makefile', line 47)
+LDFLAGS_windows = 
+# makefile (from `Makefile', line 20)
+PROJECT = goployer
+# makefile (from `Makefile', line 39)
+TEST_PACKAGES = ./pkg/... ./hack/...
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# makefile (from `Makefile', line 38)
+COMMIT = $(shell git rev-parse HEAD)
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# makefile (from `Makefile', line 60)
+GO_LDFLAGS_darwin = " $(GO_LDFLAGS)  -extldflags \"$(LDFLAGS_darwin)\""
+# makefile (from `Makefile', line 50)
+GO_BUILD_TAGS_darwin = "release"
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.q23PmOIdmP/Listeners
+# automatic
+%F = $(notdir $%)
+# makefile (from `Makefile', line 37)
+VERSION_PACKAGE = $(REPOPATH)/pkg/version
+# environment
+PWD = /Users/kuma/Develop/goployer
+# environment
+HOMEBREW_CELLAR = /opt/homebrew/Cellar
+# makefile (from `Makefile', line 34)
+GOPLOYER_TEST_PACKAGES = ./pkg/goployer/... ./cmd/... ./hack/... ./pkg/webhook/...
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# makefile (from `Makefile', line 51)
+GO_BUILD_TAGS_windows = "release"
+# environment
+MANPATH = /opt/homebrew/share/man:/opt/homebrew/share/man:::
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /Users/kuma
+# default
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/kuma/Library/Application Support/Code/CachedData/e4503b30fc78200f846c62cf8091b76ff5547662
+# environment
+LOGNAME = kuma
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+ZSH = /Users/kuma/.oh-my-zsh
+# makefile (from `Makefile', line 23)
+S3_RELEASE_PATH = s3://$(RELEASE_BUCKET)/releases/$(VERSION)
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from `Makefile', line 31)
+SUPPORTED_PLATFORMS = linux-amd64 darwin-amd64 windows-amd64.exe linux-arm64
+# environment
+XPC_FLAGS = 0x0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# makefile (from `Makefile', line 29)
+GCP_PROJECT = goployer
+# environment
+SHLVL = 1
+# makefile (from `Makefile', line 17)
+BUILD_DIR = ./out
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = kuma
+# makefile
+.DEFAULT_GOAL := out/goployer
+# makefile (from `Makefile', line 19)
+ORG = github.com/DevopsArtFactory
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/px/rfz9xvh91bg5ycyz14c5bhdm0000gn/T/
+# automatic
+*F = $(notdir $*)
+# makefile (from `Makefile', line 15)
+GOOS = $(shell go env GOOS)
+# environment
+VSCODE_IPC_HOOK = /Users/kuma/Library/Application Support/Code/1.70.2-main.sock
+# environment
+MallocNanoZone = 0
+# makefile (from `Makefile', line 28)
+GCP_ONLY = false
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.6139438.6139444
+# environment
+HOMEBREW_PREFIX = /opt/homebrew
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+HOMEBREW_REPOSITORY = /opt/homebrew
+# makefile (from `Makefile', line 22)
+RELEASE_BUCKET = $(PROJECT)
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F5:0x3:0x33
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# makefile (from `Makefile', line 59)
+GO_LDFLAGS_windows = " $(GO_LDFLAGS)  -extldflags \"$(LDFLAGS_windows)\""
+# environment
+PAGER = less
+# makefile (from `Makefile', line 25)
+S3_BLEEDING_EDGE_LATEST = s3://$(RELEASE_BUCKET)/edge/latest
+# environment
+LC_ALL = C
+# makefile (from `Makefile', line 16)
+ 
+GOARCH = amd64
+# automatic
+^F = $(notdir $^)
+# makefile (from `Makefile', line 24)
+S3_RELEASE_LATEST = s3://$(RELEASE_BUCKET)/releases/latest
+# default
+SUFFIXES := 
+# environment
+ASDF_DIR = /opt/homebrew/opt/asdf/libexec
+# makefile (from `Makefile', line 18)
+COMMAND_PKG = cmd
+# default
+.INCLUDE_DIRS = /usr/local/include
+# makefile (from `Makefile', line 35)
+GO_FILES = $(shell find . -type f -name '*.go' -not -path "./vendor/*" -not -path "./pkg/diag/*")
+# environment
+MAKELEVEL := 0
+# makefile (from `Makefile', line 21)
+REPOPATH = $(ORG)/$(PROJECT)
+# makefile (from `Makefile', line 61)
+GO_LDFLAGS_linux = " $(GO_LDFLAGS)  -extldflags \"$(LDFLAGS_linux)\""
+# environment
+LANG = C
+# environment
+VSCODE_PID = 86462
+# variable set hash-table stats:
+# Load=102/1024=10%, Rehash=0, Collisions=19/190=10%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777233, inode 6128280): 29 files, no impossibilities.
+
+# 29 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+out/goployer-%: ./cmd/goployer/cmd/deploy.go ./cmd/goployer/cmd/version.go ./cmd/goployer/cmd/add.go ./cmd/goployer/cmd/cmd.go ./cmd/goployer/cmd/flag.go ./cmd/goployer/cmd/server.go ./cmd/goployer/cmd/update.go ./cmd/goployer/cmd/delete.go ./cmd/goployer/cmd/refresh.go ./cmd/goployer/cmd/helper.go ./cmd/goployer/cmd/executor.go ./cmd/goployer/cmd/status.go ./cmd/goployer/cmd/init.go ./cmd/goployer/app/signal.go ./cmd/goployer/app/goployer.go ./cmd/goployer/main.go ./hack/schemas/main.go ./server/main.go ./pkg/deployer/deployer.go ./pkg/deployer/deployer_test.go ./pkg/deployer/rollingupdate.go ./pkg/deployer/canary.go ./pkg/deployer/bluegreen_test.go ./pkg/deployer/canary_test.go ./pkg/deployer/deployonly.go ./pkg/deployer/bluegreen.go ./pkg/deployer/deploy_manager.go ./pkg/initializer/initializer.go ./pkg/inspector/inspector.go ./pkg/refresh/refresh.go ./pkg/runner/runner.go ./pkg/runner/runner_test.go ./pkg/constants/constants.go ./pkg/collector/collector.go ./pkg/server/server.go ./pkg/schemas/config.go ./pkg/schemas/custom_struct.go ./pkg/schemas/metric_config.go ./pkg/version/version.go ./pkg/templates/templates.go ./pkg/slack/slack.go ./pkg/aws/dynamodb.go ./pkg/aws/aws.go ./pkg/aws/elbv2.go ./pkg/aws/cloudwatch_test.go ./pkg/aws/elb.go ./pkg/aws/ec2.go ./pkg/aws/cloudwatch.go ./pkg/aws/ssm.go ./pkg/aws/s3.go ./pkg/builder/metric_builder.go ./pkg/builder/metric_builder_test.go ./pkg/builder/builder.go ./pkg/builder/builder_test.go ./pkg/helper/helper.go ./pkg/tool/color.go ./pkg/tool/frigga.go ./pkg/tool/common_test.go ./pkg/tool/common.go ./pkg/tool/frigga_test.go ./out deploy/cross/Dockerfile
+#  commands to execute (from `Makefile', line 78):
+	$(eval os = $(firstword $(subst -, ,$*)))
+	$(eval arch = $(lastword $(subst -, ,$(subst .exe,,$*))))
+	$(eval ldflags = $(GO_LDFLAGS_$(os)))
+	$(eval tags = $(GO_BUILD_TAGS_$(os)))
+	docker build \
+	--build-arg GOOS=$(os) \
+	--build-arg GOARCH=$(arch) \
+	--build-arg TAGS=$(tags) \
+	--build-arg LDFLAGS=$(ldflags) \
+	-f deploy/cross/Dockerfile \
+	-t goployer/cross \
+	.
+	docker run --rm goployer/cross cat /build/goployer > $@
+	shasum -a 256 $@ | tee $@.sha256
+	file $@ || true
+	
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+update-edge: format cross out/VERSION upload-edge-only
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+release-build: format cross
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 117):
+	docker build \
+	-f deploy/goployer/Dockerfile \
+	--target release \
+	-t gcr.io/$(GCP_PROJECT)/goployer:edge \
+	-t gcr.io/$(GCP_PROJECT)/goployer:$(COMMIT) \
+	.
+	aws s3 cp $(BUILD_DIR)/$(PROJECT)-* $(S3_RELEASE_PATH)/
+	aws s3 cp -r $(S3_RELEASE_PATH)/* $(S3_RELEASE_LATEST)
+	
+
+# Not a target:
+pkg/deployer/deployonly.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/deployer/canary.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/aws/ec2.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+out/goployer-windows-amd64.exe:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/tool/common_test.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/version/version.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+out/goployer: cmd/goployer/cmd/deploy.go cmd/goployer/cmd/version.go cmd/goployer/cmd/add.go cmd/goployer/cmd/cmd.go cmd/goployer/cmd/flag.go cmd/goployer/cmd/server.go cmd/goployer/cmd/update.go cmd/goployer/cmd/delete.go cmd/goployer/cmd/refresh.go cmd/goployer/cmd/helper.go cmd/goployer/cmd/executor.go cmd/goployer/cmd/status.go cmd/goployer/cmd/init.go cmd/goployer/app/signal.go cmd/goployer/app/goployer.go cmd/goployer/main.go hack/schemas/main.go server/main.go pkg/deployer/deployer.go pkg/deployer/deployer_test.go pkg/deployer/rollingupdate.go pkg/deployer/canary.go pkg/deployer/bluegreen_test.go pkg/deployer/canary_test.go pkg/deployer/deployonly.go pkg/deployer/bluegreen.go pkg/deployer/deploy_manager.go pkg/initializer/initializer.go pkg/inspector/inspector.go pkg/refresh/refresh.go pkg/runner/runner.go pkg/runner/runner_test.go pkg/constants/constants.go pkg/collector/collector.go pkg/server/server.go pkg/schemas/config.go pkg/schemas/custom_struct.go pkg/schemas/metric_config.go pkg/version/version.go pkg/templates/templates.go pkg/slack/slack.go pkg/aws/dynamodb.go pkg/aws/aws.go pkg/aws/elbv2.go pkg/aws/cloudwatch_test.go pkg/aws/elb.go pkg/aws/ec2.go pkg/aws/cloudwatch.go pkg/aws/ssm.go pkg/aws/s3.go pkg/builder/metric_builder.go pkg/builder/metric_builder_test.go pkg/builder/builder.go pkg/builder/builder_test.go pkg/helper/helper.go pkg/tool/color.go pkg/tool/frigga.go pkg/tool/common_test.go pkg/tool/common.go pkg/tool/frigga_test.go out
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 65):
+	@echo
+	GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=1 go build -tags $(GO_BUILD_TAGS_$(GOOS)) -ldflags $(GO_LDFLAGS_$(GOOS)) -o $@ $(BUILD_PACKAGE)
+	
+
+# Not a target:
+pkg/runner/runner_test.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+all:
+#  Command-line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+api-test:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 182):
+	@ ./hack/apitest.sh
+	
+
+.PHONY: install cross out/VERSION update-edge update-experimental release build release-build upload-edge-only upload-experimental-only upload-release-only clean version format generate-schema preview-docs-draft preview-docs test api-test coverage linters
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/builder/builder.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PRECIOUS: out/goployer-linux-amd64 out/goployer-darwin-amd64 out/goployer-windows-amd64.exe out/goployer-linux-arm64
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+cmd/goployer/app/goployer.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+ 
+pkg/deployer/deployer_test.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/tool/frigga_test.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/deployer/rollingupdate.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/helper/helper.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/collector/collector.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+cross: out/goployer-linux-amd64 out/goployer-darwin-amd64 out/goployer-windows-amd64.exe out/goployer-linux-arm64
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+pkg/aws/elb.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+format:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 161):
+	go fmt ./...
+	
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-18 13:43:00
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+cmd/goployer/cmd/helper.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+test:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 178):
+	@ go test -count=1 -v -race -short -timeout=90s $(TEST_PACKAGES)
+	
+
+update-experimental: format cross out/VERSION upload-experimental-only
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+pkg/tool/common.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/initializer/initializer.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build: format cross out/VERSION
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+pkg/refresh/refresh.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/server/server.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+cmd/goployer/cmd/cmd.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/runner/runner.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+out/VERSION: out
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 98):
+	@ echo $(VERSION) > $@
+	
+
+out:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 101):
+	mkdir -p $(BUILD_DIR)
+	
+
+# Not a target:
+cmd/goployer/cmd/init.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/templates/templates.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/aws/dynamodb.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+cmd/goployer/cmd/add.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/schemas/metric_config.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/aws/s3.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/deployer/deploy_manager.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/deployer/deployer.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/tool/frigga.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/tool/color.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/deployer/bluegreen_test.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/aws/aws.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+cmd/goployer/cmd/flag.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+out/goployer-linux-amd64:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+version:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 157):
+	@echo "Current version is ${VERSION}"
+	
+
+release: format clean cross out/VERSION upload-release-only
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+ 
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+upload-release-only: version
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 142):
+	aws s3 cp $(BUILD_DIR)/ $(S3_RELEASE_PATH)/ --recursive --include "$(PROJECT)-*" --acl public-read
+	aws s3 cp $(S3_RELEASE_PATH)/ $(S3_RELEASE_LATEST)/ --recursive --acl public-read
+	docker build --build-arg GOPLOYER_VERSION=edge --build-arg GOPLOYER_URL=https://goployer.s3.ap-northeast-2.amazonaws.com/edge/latest/goployer-linux-amd64 -t devopsart/goployer:latest deploy
+	docker push devopsart/goployer:latest
+	
+
+# Not a target:
+pkg/aws/cloudwatch_test.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/aws/ssm.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+preview-docs-draft:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 170):
+	./deploy/docs/preview-docs.sh hugo serve -D --bind=0.0.0.0 --ignoreCache
+	
+
+# Not a target:
+pkg/schemas/custom_struct.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+upload-edge-only: version
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 128):
+	aws s3 cp $(BUILD_DIR)/ $(S3_BLEEDING_EDGE_LATEST)/ --recursive --include "$(PROJECT)-*" --acl public-read
+	docker build --build-arg GOPLOYER_VERSION=edge --build-arg GOPLOYER_URL=https://goployer.s3.ap-northeast-2.amazonaws.com/edge/latest/goployer-linux-amd64 -t devopsart/goployer:edge deploy
+	docker push devopsart/goployer:edge
+	
+
+preview-docs:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 174):
+	./deploy/docs/preview-docs.sh hugo serve --bind=0.0.0.0 --ignoreCache
+	
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 150):
+	rm -rf $(BUILD_DIR)
+	rm -rf manifest
+	rm -rf manifests
+	rm -rf scripts
+	
+
+coverage: out
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 186):
+	@ go test -count=1 -race -cover -short -timeout=90s -coverprofile=out/coverage.txt -coverpkg="./pkg/...,./hack..." $(TEST_PACKAGES)
+	@- curl -s https://codecov.io/bash > $(BUILD_DIR)/upload_coverage && bash $(BUILD_DIR)/upload_coverage -t $(COVERAGE_TOKEN)
+	
+
+# Not a target:
+cmd/goployer/cmd/version.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/inspector/inspector.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/deployer/canary_test.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+cmd/goployer/app/signal.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+cmd/goployer/cmd/delete.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+cmd/goployer/cmd/status.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/builder/metric_builder_test.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+linters: out
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 190):
+	@ ./hack/linters.sh
+	
+
+generate-schemas:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 165):
+	go run ./hack/schemas/main.go
+	
+
+# Not a target:
+cmd/goployer/cmd/deploy.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+server/main.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+hack/schemas/main.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+out/goployer-linux-arm64:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/deployer/bluegreen.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/builder/builder_test.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/schemas/config.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+cmd/goployer/cmd/refresh.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+cmd/goployer/cmd/server.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/aws/elbv2.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+cmd/goployer/cmd/executor.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/slack/slack.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+out/goployer-darwin-amd64:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+cmd/goployer/main.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/aws/cloudwatch.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+cmd/goployer/cmd/update.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+generate-schema:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+pkg/builder/metric_builder.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pkg/constants/constants.go:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+upload-experimental-only: version
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 135):
+	aws s3 cp $(BUILD_DIR)/ $(S3_EXPERIMENTAL_LATEST)/ --recursive --include "$(PROJECT)-*" --acl public-read
+	docker build --build-arg GOPLOYER_VERSION=experimental --build-arg GOPLOYER_URL=https://goployer.s3.ap-northeast-2.amazonaws.com/experimental/latest/goployer-linux-amd64 -t devopsart/goployer:experimental deploy
+	docker push devopsart/goployer:experimental
+	
+
+install: out/goployer
+ 
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 70):
+	cp $(BUILD_DIR)/$(PROJECT) $(GOPATH)/bin/$(PROJECT)
+	
+
+# files hash-table stats:
+# Load=94/1024=9%, Rehash=0, Collisions=10/241=4%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Sat Aug 27 11:26:01 2022
+
+ 

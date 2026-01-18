@@ -1,8 +1,12 @@
 .splashbutton {
     display: inline-block;
     text-align: center;
-    font-size: 18px;
-    -webkit-transition-duration: 0.3s; /* Safari */
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    -webkit-transition-duration: 0.3s;
+    /* Safari */
     transition-duration: 0.3s;
     margin-bottom: 10px;
 }

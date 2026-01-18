@@ -1,0 +1,20 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "[html]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": null,
+        "editor.formatOnPaste": false,
+        "editor.formatOnType": false
+    },
+    "prettier.disableLanguages": [
+        "html"
+    ],
+    "prettier.enable": false,
+    "beautify.ignore": [
+        "**/*.html"
+    ],
+    "vetur.format.enable": false,
+    "html.format.enable": false,
+    "files.trimTrailingWhitespace": false,
+    "editor.formatOnSave": false
+}
