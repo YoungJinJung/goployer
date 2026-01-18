@@ -13,11 +13,6 @@
     --maturity-beta: #ffd500;
 }
 
-html {
-    overflow-x: hidden;
-    max-width: 100vw;
-}
-
 .main-color {
     background-color: var(--main-bg-color);
     color: var(--light-text);
@@ -25,7 +20,6 @@ html {
 
 body {
     background-color: var(--testimonials-color);
-    overflow-x: hidden;
 }
 
 .goployer-navbar {
@@ -51,16 +45,17 @@ input.td-search-input::placeholder {
     color: var(--values-foreground);
 
     padding-top: 5rem !important;
-    padding-bottom: 10rem !important;
+    padding-bottom: 5rem !important;
     padding-left: 2rem !important;
     padding-right: 2rem !important;
 }
 
 .testimonial-section {
     background-color: var(--testimonials-color);
+    color: var(--main-bg-color);
 
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
     padding-left: 2rem !important;
     padding-right: 2rem !important;
 }
